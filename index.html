@@ -10,8 +10,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000;
-            color: #fff;
+            background-color: #f4f4f9;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,22 +19,45 @@
 
         .verification-container {
             text-align: center;
+            background: #fff;
             padding: 20px;
-            border: 2px solid #ff4500;
             border-radius: 10px;
-            background: rgba(255, 69, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .verification-container img {
-            width: 200px;
-            height: auto;
-            border-radius: 10px;
-            cursor: pointer;
+        .verification-container h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
         }
 
         .verification-container p {
-            margin: 20px 0;
             font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .verification-container input {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .verification-container button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .verification-container button:hover {
+            background-color: #0056b3;
         }
 
         #content {
@@ -44,30 +66,46 @@
     </style>
 </head>
 <body>
-    <!-- Verification Section -->
     <div class="verification-container" id="verification">
-        <p>Are you human? Tap below to proceed:</p>
-        <img src="https://i.imgur.com/8lDzGxT.jpg" alt="Verification Image" onclick="unlockContent()">
+        <h1>Human Verification</h1>
+        <p>To view the contents, solve this simple challenge:</p>
+        <p><strong>What is 5 + 3?</strong></p>
+        <input type="text" id="answer" placeholder="Enter your answer">
+        <button onclick="verifyAnswer()">Submit</button>
     </div>
 
-    <!-- Hidden Content -->
     <div id="content">
-        <h1>Welcome to the Gallery</h1>
-        <p>Enjoy your access to the hidden content.</p>
-        <!-- Your original content -->
+        <!-- Original HTML content starts here -->
         <div class="image-container">
             <a href="https://jessica.short.gy/photos" target="_blank">
                 <img src="https://shorturl.at/MisMm" alt="Blurred Image 1">
             </a>
             <a href="https://jessica.short.gy/photos" class="view-button" target="_blank">View</a>
         </div>
-        <!-- Add more images as needed -->
+        <div class="image-container">
+            <a href="https://jessica.short.gy/photos" target="_blank">
+                <img src="https://shorturl.at/srWRy" alt="Blurred Image 1">
+            </a>
+            <a href="https://jessica.short.gy/photos" class="view-button" target="_blank">View</a>
+        </div>
+        <div class="image-container">
+            <a href="https://jessica.short.gy/photos" target="_blank">
+                <img src="https://shorturl.at/OvPo2" alt="Blurred Image 2">
+            </a>
+            <a href="https://jessica.short.gy/photos" class="view-button" target="_blank">View</a>
+        </div>
+        <!-- Original HTML content ends here -->
     </div>
 
     <script>
-        function unlockContent() {
-            document.getElementById('verification').style.display = 'none';
-            document.getElementById('content').style.display = 'block';
+        function verifyAnswer() {
+            const answer = document.getElementById('answer').value.trim();
+            if (answer === '8') {
+                document.getElementById('verification').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            } else {
+                alert('Incorrect answer. Please try again.');
+            }
         }
     </script>
 </body>
