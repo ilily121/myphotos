@@ -1,89 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" href="https://i.redd.it/0pkeht5jvt7e1.jpeg" type="image/jpeg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Gallery</title>
+    <title>Human Verification</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
         }
-
-        .image-container {
-            position: relative;
-            width: 98%;
-            margin: 10px 0;
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-
-        .image-container img {
-            width: 100%;
-            height: auto;
-            filter: blur(5px); /* Adjust the value */
-            transition: filter 0.3s ease-in-out;
+        input[type="text"] {
+            padding: 10px;
+            margin-top: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
-
-        .image-container:hover img {
-            filter: blur(3px);
-        }
-
-        .view-button {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #ff5722;
-            color: #fff;
+        button {
             padding: 10px 20px;
+            background-color: #28a745;
+            color: #fff;
             border: none;
             border-radius: 5px;
-            text-transform: uppercase;
-            font-size: 14px;
-            font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            opacity: 0.9;
-            transition: opacity 0.3s ease-in-out;
+            cursor: pointer;
+            font-size: 16px;
         }
-
-        .view-button:hover {
-            opacity: 1;
-            background-color: #ff784e;
+        button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
-    <!-- Image 1 -->
-    <div class="image-container">
-        <a href="https://jessica.short.gy/photos" target="_blank">
-            <img src="https://shorturl.at/MisMm" alt="Blurred Image 1">
-        </a>
-        <a href="https://jessica.short.gy/photos" class="view-button" target="_blank">View</a>
-    </div>
-    <div class="image-container">
-        <a href="https://jessica.short.gy/photos" target="_blank">
-            <img src="https://shorturl.at/srWRy" alt="Blurred Image 1">
-        </a>
-        <a href="https://jessica.short.gy/photos" class="view-button" target="_blank">View</a>
-    </div>
 
-    <!-- Image 2 -->
-    <div class="image-container">
-        <a href="https://jessica.short.gy/photos" target="_blank">
-            <img src="https://shorturl.at/OvPo2" alt="Blurred Image 2">
-        </a>
-        <a href="https://jessica.short.gy/photos" class="view-button" target="_blank">View</a>
-    </div>
+<div class="container">
+    <h2>Human Verification</h2>
+    <p>To access the content, please solve the simple math problem below:</p>
+    <div id="problem"></div>
+    <input type="text" id="userAnswer" placeholder="Your answer">
+    <br><br>
+    <button onclick="verifyAnswer()">Verify</button>
+</div>
 
-    
+<script>
+    let num1 = Math.floor(Math.random() * 5) + 1; // Random number between 1 and 5
+    let num2 = Math.floor(Math.random() * 5) + 1; // Random number between 1 and 5
+    let correctAnswer = num1 + num2;
+
+    // Display the problem
+    document.getElementById("problem").innerText = `What is ${num1} + ${num2}?`;
+
+    function verifyAnswer() {
+        let userAnswer = parseInt(document.getElementById("userAnswer").value);
+
+        if (userAnswer === correctAnswer) {
+            // Redirect after successful verification
+            window.location.href = "https://iemmabanks.github.io/photos/";
+        } else {
+            alert("Incorrect answer. Please try again.");
+        }
+    }
+</script>
+
 </body>
 </html>
