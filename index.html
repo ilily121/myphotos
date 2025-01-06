@@ -4,7 +4,7 @@
     <link rel="icon" href="https://i.redd.it/0pkeht5jvt7e1.jpeg" type="image/jpeg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verification Required</title>
+    <title>Image Gallery</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,101 +12,78 @@
             padding: 0;
             background-color: #f4f4f9;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
         }
 
-        .verification-container {
-            text-align: center;
-            background: #fff;
-            padding: 20px;
+        .image-container {
+            position: relative;
+            width: 98%;
+            margin: 10px 0;
+            overflow: hidden;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .verification-container h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        .verification-container p {
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-
-        .verification-container input {
-            margin-top: 10px;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+        .image-container img {
             width: 100%;
-            box-sizing: border-box;
+            height: auto;
+            filter: blur(5px); /* Adjust the value */
+            transition: filter 0.3s ease-in-out;
         }
 
-        .verification-container button {
-            margin-top: 10px;
+        .image-container:hover img {
+            filter: blur(3px);
+        }
+
+        .view-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ff5722;
+            color: #fff;
             padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #007bff;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            opacity: 0.9;
+            transition: opacity 0.3s ease-in-out;
         }
 
-        .verification-container button:hover {
-            background-color: #0056b3;
-        }
-
-        #content {
-            display: none;
+        .view-button:hover {
+            opacity: 1;
+            background-color: #ff784e;
         }
     </style>
 </head>
 <body>
-    <div class="verification-container" id="verification">
-        <h1>Human Verification</h1>
-        <p>To view the contents, solve this simple challenge:</p>
-        <p><strong>What is 5 + 3?</strong></p>
-        <input type="text" id="answer" placeholder="Enter your answer">
-        <button onclick="verifyAnswer()">Submit</button>
+    <!-- Image 1 -->
+    <div class="image-container">
+        <a href="https://jessica.short.gy/photos" target="_blank">
+            <img src="https://shorturl.at/MisMm" alt="Blurred Image 1">
+        </a>
+        <a href="https://jessica.short.gy/photos" class="view-button" target="_blank">View</a>
+    </div>
+    <div class="image-container">
+        <a href="https://jessica.short.gy/photos" target="_blank">
+            <img src="https://shorturl.at/srWRy" alt="Blurred Image 1">
+        </a>
+        <a href="https://jessica.short.gy/photos" class="view-button" target="_blank">View</a>
     </div>
 
-    <div id="content">
-        <!-- Original HTML content starts here -->
-        <div class="image-container">
-            <a href="https://jessica.short.gy/photos" target="_blank">
-                <img src="https://shorturl.at/MisMm" alt="Blurred Image 1">
-            </a>
-            <a href="https://jessica.short.gy/photos" class="view-button" target="_blank">View</a>
-        </div>
-        <div class="image-container">
-            <a href="https://jessica.short.gy/photos" target="_blank">
-                <img src="https://shorturl.at/srWRy" alt="Blurred Image 1">
-            </a>
-            <a href="https://jessica.short.gy/photos" class="view-button" target="_blank">View</a>
-        </div>
-        <div class="image-container">
-            <a href="https://jessica.short.gy/photos" target="_blank">
-                <img src="https://shorturl.at/OvPo2" alt="Blurred Image 2">
-            </a>
-            <a href="https://jessica.short.gy/photos" class="view-button" target="_blank">View</a>
-        </div>
-        <!-- Original HTML content ends here -->
+    <!-- Image 2 -->
+    <div class="image-container">
+        <a href="https://jessica.short.gy/photos" target="_blank">
+            <img src="https://shorturl.at/OvPo2" alt="Blurred Image 2">
+        </a>
+        <a href="https://jessica.short.gy/photos" class="view-button" target="_blank">View</a>
     </div>
 
-    <script>
-        function verifyAnswer() {
-            const answer = document.getElementById('answer').value.trim();
-            if (answer === '8') {
-                document.getElementById('verification').style.display = 'none';
-                document.getElementById('content').style.display = 'block';
-            } else {
-                alert('Incorrect answer. Please try again.');
-            }
-        }
-    </script>
+    
 </body>
 </html>
